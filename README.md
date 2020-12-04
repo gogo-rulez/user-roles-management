@@ -1,5 +1,5 @@
 # user-roles-management
-
+A vue app for user roles management
 ## Project setup
 ```
 npm install
