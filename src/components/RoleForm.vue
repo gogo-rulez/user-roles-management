@@ -1,13 +1,15 @@
 <template>
-    <div class="home">
+    <div>
 
     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
-    name: 'Home',
+    name: 'RoleForm'
 };
 </script>
+
+<style lang="scss" scoped>
+
+</style>
