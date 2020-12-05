@@ -1,5 +1,172 @@
 $rc: role_card;
 
 .#{$rc} {
+    position: relative;
+    border: 1px solid $grey;
+    padding: 0 15px 40px;
+
+    @include min-screen($widescreen) {
+        padding: 0 30px 60px;
+    }
+
+    &__inactive_flag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 4px;
+        background-color: $red;
+        font-size: rem(14);
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        margin: 50px 0;
+    }
+
+    &__title {
+        font: $fontBold;
+        font-size: rem(18);
+        line-height: rem(22);
+
+        @include min-screen($widescreen) {
+            font-size: rem(22);
+            line-height: rem(26);
+        }
+    }
+
+    &__role_type {
+        font-size: rem(16);
+        line-height: rem(20);
+
+        @include min-screen($widescreen) {
+            font-size: rem(20);
+            line-height: rem(24);
+        }
+    }
+
+    &__description {
+        margin: 15px 0 0;
+        font-size: rem(14);
+        line-height: rem(18);
+
+        @include min-screen($widescreen) {
+            margin: 30px 0 0;
+            font-size: rem(18);
+            line-height: rem(22);
+        }
+    }
+
+    &__figure {
+        display: flex;
+        margin: 15px 0 0;
+        height: 30px;
+
+        @include min-screen($widescreen) {
+            height: 50px;
+            margin: 30px 0;
+        }
+
+        img {
+            display: block;
+            width: 30px;
+            height: auto;
+            border-radius: 50%;
+
+            @include min-screen($widescreen) {
+                width: 50px;
+            }
+
+            &:not(:first-child) {
+                margin: 0 0 0 10px;
+            }
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 0 0 10px;
+            background-color: $dark-grey;
+            font-size: rem(14);
+            color: #fff;
+
+            @include min-screen($widescreen) {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 40px;
+        padding: 0 15px;
+        background-color: $light-grey;
+
+        @include min-screen($widescreen) {
+            height: 60px;
+            padding: 0 30px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 -15px 0 0;
+            font-size: rem(20);
+
+            @include min-screen($widescreen) {
+                width: 60px;
+                height: 60px;
+                margin: 0 -30px 0 0;
+                font-size: rem(24);
+            }
+        }
+    }
+
+    &__options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__edit_btn,
+    &__delete_btn {
+        font: $fontBold;
+        font-size: rem(15);
+        color: $black;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        @include min-screen($widescreen) {
+            font-size: rem(17);
+        }
+
+        &.is-red {
+            color: $red;
+        }
+
+        &:not(:first-child) {
+            margin: 0 0 0 10px;
+        }
+    }
+
+
 
 }
