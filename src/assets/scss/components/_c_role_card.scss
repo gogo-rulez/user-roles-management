@@ -22,10 +22,15 @@ $rc: role_card;
         font-size: rem(14);
         color: #fff;
         text-transform: uppercase;
+
+        @include min-screen($widescreen) {
+            top: 20px;
+            right: 20px;
+        }
     }
 
     &__content {
-        margin: 50px 0;
+        margin: 70px 0;
     }
 
     &__title {
@@ -130,6 +135,7 @@ $rc: role_card;
             height: 40px;
             margin: 0 -15px 0 0;
             font-size: rem(20);
+            color: $dark-grey;
 
             @include min-screen($widescreen) {
                 width: 60px;

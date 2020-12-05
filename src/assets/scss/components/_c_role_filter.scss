@@ -5,6 +5,10 @@ $rfil: role_filter;
     z-index: 1;
     margin: 15px 0 0;
 
+    @include min-screen($widescreen) {
+        margin: 30px 0 0;
+    }
+
     &__form {
         display: flex;
         flex-direction: column;
@@ -31,6 +35,11 @@ $rfil: role_filter;
         font-size: rem(14);
         appearance: none;
 
+        @include min-screen($widescreen) {
+            height: 50px;
+            font-size: rem(18);
+        }
+
         &::placeholder {
             color: $grey;
         }
@@ -55,29 +64,48 @@ $rfil: role_filter;
         height: 40px;
         font-size: rem(24);
 
+        @include min-screen($widescreen) {
+            width: 50px;
+            height: 50px;
+        }
+
         &.is-full-width {
             width: 100%;
         }
     }
 
     &__select_wrap {
-        margin: 15px 0 0;
+        margin: 30px 0 0;
 
         @include min-screen($tablet) {
             flex: 0 1 20%;
             margin: 0 auto 0 15px;
+        }
+
+        @include min-screen($widescreen) {
+            flex: 0 1 20%;
+            margin: 0 auto 0 30px;
         }
     }
 
     &__select_label {
         font: $fontReg;
         font-size: rem(14);
+        color: $dark-grey;
+
+        @include min-screen($widescreen) {
+            font-size: rem(16);
+        }
     }
 
     &__select {
         position: relative;
         height: 40px;
         border-bottom: 1px solid $turquoise;
+
+        @include min-screen($widescreen) {
+            height: 50px;
+        }
 
         &.is-opened {
             padding: 0 8px;
@@ -90,6 +118,11 @@ $rfil: role_filter;
             align-items: center;
             height: 40px;
             font-size: rem(14);
+
+            @include min-screen($widescreen) {
+                height: 50px;
+                font-size: rem(16);
+            }
         }
     }
 
@@ -111,12 +144,22 @@ $rfil: role_filter;
         align-items: center;
         justify-content: center;
         height: 40px;
-        margin: 30px 0 0 auto;
+        margin: 30px 0 0;
         padding: 10px;
+        border-radius: 4px;
         background-color: $turquoise;
         font-size: rem(14);
         color: #fff;
         text-transform: uppercase;
+
+        @include min-screen($tablet) {
+            margin: 0 0 0 auto;
+        }
+
+        @include min-screen($widescreen) {
+            height: 50px;
+            font-size: rem(18);
+        }
     }
 
 
