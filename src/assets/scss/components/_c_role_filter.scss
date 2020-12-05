@@ -1,6 +1,123 @@
 $rfil: role_filter;
 
 .#{$rfil} {
+    position: relative;
+    z-index: 1;
+    margin: 15px 0 0;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include min-screen($tablet) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+
+    &__input_wrap {
+        position: relative;
+
+        @include min-screen($tablet) {
+            flex: 0 1 20%;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $turquoise;
+        height: 40px;
+        font-size: rem(14);
+        appearance: none;
+
+        &::placeholder {
+            color: $grey;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $grey;
+        }
+
+        &::-ms-input-placeholder {
+            color: $grey;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 40px;
+        height: 40px;
+        font-size: rem(24);
+
+        &.is-full-width {
+            width: 100%;
+        }
+    }
+
+    &__select_wrap {
+        margin: 15px 0 0;
+
+        @include min-screen($tablet) {
+            flex: 0 1 20%;
+            margin: 0 auto 0 15px;
+        }
+    }
+
+    &__select_label {
+        font: $fontReg;
+        font-size: rem(14);
+    }
+
+    &__select {
+        position: relative;
+        height: 40px;
+        border-bottom: 1px solid $turquoise;
+
+        &.is-opened {
+            padding: 0 8px;
+            margin: 0 -8px;
+            box-shadow: 0px -3px 6px 0px rgba(115, 100, 93, 0.3);
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            font-size: rem(14);
+        }
+    }
+
+    &__select_inner_wrap {
+        height: 0;
+        overflow: hidden;
+
+        .is-opened & {
+            height: auto;
+            padding: 0 8px;
+            margin: 0 -8px;
+            background-color: #fff;
+            box-shadow: 0px 3px 8px 0px rgba(115, 100, 93, 0.3);
+        }
+    }
+
+    &__new_role_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        margin: 30px 0 0 auto;
+        padding: 10px;
+        background-color: $turquoise;
+        font-size: rem(14);
+        color: #fff;
+        text-transform: uppercase;
+    }
 
 
 }
