@@ -3,9 +3,11 @@
 
         <h1 class="home__title">User Roles Management</h1>
 
-        <role-filter
-            @filterBySearch="filterResults($event)"
-        />
+        <div class="home__filter_wrap">
+            <role-filter
+                @filterBySearch="filterResults($event)"
+            />
+        </div>
 
         <div class="home__cards_wrap">
             <role-card
@@ -43,14 +45,24 @@ export default {
     },
 
     watch: {
+        // need watcher because of delete functionality
+
         getRoles () {
             this.roles = [...this.getRoles];
         }
     },
 
+    mounted () {
+        this.roles = [...this.getRoles];
+    },
+
     methods: {
 
         filterResults (filters) {
+
+            // filter first by search term
+            // the term and role.name are set to lowercase to rule out case
+            // then filter by activity
 
             const currentRoles = [...this.getRoles];
 

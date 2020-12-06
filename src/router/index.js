@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Role from '../views/Role.vue';
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,13 @@ const routes = [
         name: 'Home',
         component: Home,
     },
+
+    {
+        path: '/role/:id',
+        name: 'RolePage',
+        component: Role
+    }
+
 ];
 
 const router = new VueRouter({

@@ -23,7 +23,7 @@
                         :alt="`${user.first_name} ${user.last_name}`">
 
                 </template>
-                <span v-if="role.users.length > 6">+{{ role.users.length - 6 }}</span>
+                <span v-if="role.users && role.users.length > 6">+{{ role.users.length - 6 }}</span>
             </figure>
 
         </div>
@@ -42,12 +42,15 @@
             <div
                 v-else
                 class="role_card__options">
+                <router-link
+                    :to="{name: 'RolePage', params: {id: role.id}}"
+                    class="role_card__edit_btn">
+                    Edit
+                </router-link>
                 <a
-                    href=""
-                    class="role_card__edit_btn">Edit</a>
-                <a
-                    href=""
-                    class="role_card__delete_btn is-red">Delete</a>
+                    role="button"
+                    class="role_card__delete_btn is-red"
+                    @click="deleteRole(role.id)">Delete</a>
             </div>
 
         </footer>
@@ -56,7 +59,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'RoleCard',
@@ -69,11 +72,16 @@ export default {
     },
 
     computed: {
-        ...mapGetters(['isMob', 'isDesk'])
+        ...mapGetters(['isDesk'])
     },
 
     methods: {
+        ...mapActions(['deleteRole']),
+
         createdDate (date) {
+
+            // construct created date - DD/MM/YYYY
+
             const newDate = new Date(date);
             const year = newDate.getFullYear();
             const month = newDate.getMonth() + 1;
@@ -85,6 +93,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>

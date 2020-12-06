@@ -1,0 +1,37 @@
+$b: btn;
+
+.#{$b} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 4px;
+    font-size: rem(14);
+    color: #fff;
+    text-transform: uppercase;
+
+    @include min-screen($widescreen) {
+        height: 50px;
+        padding: 0 20px;
+        font-size: rem(18);
+    }
+
+    &.has-background-turquoise {
+        background-color: $turquoise;
+    }
+
+    &.has-background-red {
+        background-color: $red;
+    }
+
+    &.has-background-grey {
+        background-color: $grey;
+    }
+
+    &.is-disabled {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.5;
+    }
+}
