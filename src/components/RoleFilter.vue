@@ -49,11 +49,11 @@
 
             </div>
 
-            <a
-                role="button"
+            <router-link
+                :to="{name: 'RolePage', params: {id: getNumberOfRoles + 1} }"
                 class="role_filter__new_role_btn">
                 Create new role
-            </a>
+            </router-link>
 
         </form>
 
@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'RoleFilter',
     data () {
@@ -69,6 +71,10 @@ export default {
             selectValue: 'Active and Inactive',
             roleSearchTitle: ''
         };
+    },
+
+    computed: {
+        ...mapGetters(['getNumberOfRoles'])
     },
 
     watch: {

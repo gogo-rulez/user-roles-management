@@ -1,16 +1,33 @@
 <template>
     <div id="app">
         <div class="site_wrap">
-            <router-view/>
+            <router-view v-if="getRolesLoaded"/>
         </div>
     </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     name: 'App',
+
+    data () {
+        return {
+            dataReady: false
+        };
+    },
+
+    computed: {
+        ...mapGetters(['getRolesLoaded'])
+    },
+
+    watch: {
+        getRolesLoaded (val) {
+            if (!val) return;
+            this.dataReady = true;
+        }
+    },
 
     mounted () {
         this.setPlatform();
